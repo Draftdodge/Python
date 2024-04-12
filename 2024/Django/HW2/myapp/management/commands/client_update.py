@@ -13,14 +13,15 @@ class Command(BaseCommand):
         parser.add_argument('-p', '--phone', type=str, help='Телефон')
         parser.add_argument('-a', '--address', type=str, help='Адрес')
 
-    def handle(self, *args, **kwargs):
-        pk = kwargs.get['pk']
-        client_name = kwargs.get['name']
-        email = kwargs.get['email']
-        password = kwargs.get['password']
-        phone = kwargs.get['phone']
-        address = kwargs.get['address']
+    def handle(self, *args, **options):
+        pk = options['pk']
+        client_name = options['name']
+        email = options['email']
+        password = options['password']
+        phone = options['phone']
+        address = options['address']
 
+        self.stdout.write(f'{pk}')
         client = Client.objects.filter(pk=pk).first()
 
         if client:

@@ -15,4 +15,4 @@ class Command(BaseCommand):
         if client is not None:
             client.delete()
 
-        self.stdout.write(f'f{client}')
+        self.stdout.write(f'{client}')
